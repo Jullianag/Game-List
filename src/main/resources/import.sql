@@ -57,13 +57,9 @@ INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (11, 3);
 
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (12, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (12, 3);
-INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (12, 7);
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (12, 8);
 
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 4);
-
-INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 1);
-INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 3);
-INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 7);
 
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 3);
