@@ -4,35 +4,28 @@ import com.meusprojetos.Game.List.entities.Game;
 
 import java.time.LocalDate;
 
-public class GameDTO {
+public class GameMinDTO {
 
     private Long id;
     private String titulo;
     private LocalDate lancamento;
     private String console;
-    private Integer pontuacao;
-    private String imgUrl;
-    private String descricaoLonga;
+    private String descricaoCurta;
 
-    public GameDTO(Long id, String titulo, LocalDate lancamento, String console, Integer pontuacao,
-                   String imgUrl, String descricaoLonga) {
+    public GameMinDTO(Long id, String titulo, LocalDate lancamento, String console, String descricaoCurta) {
         this.id = id;
         this.titulo = titulo;
         this.lancamento = lancamento;
         this.console = console;
-        this.pontuacao = pontuacao;
-        this.imgUrl = imgUrl;
-        this.descricaoLonga = descricaoLonga;
+        this.descricaoCurta = descricaoCurta;
     }
 
-    public GameDTO(Game entity) {
+    public GameMinDTO(Game entity) {
         id = entity.getId();
         titulo = entity.getTitulo();
         lancamento = entity.getLancamento();
         console = entity.getConsole();
-        pontuacao = entity.getPontuacao();
-        imgUrl = entity.getImgUrl();
-        descricaoLonga = entity.getDescricaoLonga();
+        descricaoCurta = entity.getDescricaoCurta();
     }
 
     public Long getId() {
@@ -51,15 +44,7 @@ public class GameDTO {
         return console;
     }
 
-    public Integer getPontuacao() {
-        return pontuacao;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public String getDescricaoLonga() {
-        return descricaoLonga;
+    public String getDescricaoCurta() {
+        return descricaoCurta;
     }
 }

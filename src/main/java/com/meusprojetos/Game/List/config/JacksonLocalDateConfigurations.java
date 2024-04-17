@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class JacksonLocalDateConfigurations {
 
-    private static final String datePattern = "dd/MM/yyyy";
+    private static final String datePattern = "dd-MM-yyyy";
     private static final String dateTimePattern = "dd/MM/yyyy HH:mm:ss";
 
     @Bean

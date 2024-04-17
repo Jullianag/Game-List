@@ -1,6 +1,7 @@
 package com.meusprojetos.Game.List.controllers;
 
 import com.meusprojetos.Game.List.dto.GameDTO;
+import com.meusprojetos.Game.List.dto.GameMinDTO;
 import com.meusprojetos.Game.List.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +25,8 @@ public class GameController {
     }
 
     @GetMapping
-    public List<GameDTO> findAll() {
-        List<GameDTO> result = gameService.findAll();
+    public List<GameMinDTO> findAll() {
+        List<GameMinDTO> result = gameService.findAll();
         return result;
     }
 }

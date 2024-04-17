@@ -1,6 +1,7 @@
 package com.meusprojetos.Game.List.services;
 
 import com.meusprojetos.Game.List.dto.GameDTO;
+import com.meusprojetos.Game.List.dto.GameMinDTO;
 import com.meusprojetos.Game.List.entities.Game;
 import com.meusprojetos.Game.List.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public List<GameDTO> findAll() {
+    public List<GameMinDTO> findAll() {
         List<Game> result = gameRepository.findAll();
-        return result.stream().map(x -> new GameDTO(x)).toList();
+        return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
 }

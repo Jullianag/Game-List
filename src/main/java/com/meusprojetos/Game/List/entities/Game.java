@@ -17,8 +17,6 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate lancamento;
     private String console;
     private Integer pontuacao;
