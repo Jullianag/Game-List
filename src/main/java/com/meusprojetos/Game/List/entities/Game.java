@@ -35,7 +35,6 @@ public class Game {
     private Set<GameInfo> lista = new HashSet<>();
 
 
-
     public Game() {
     }
 

@@ -89,3 +89,5 @@ INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (4, 13, 0);
 INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (5, 8, 0);
 
 INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (7, 9, 0);
+
+

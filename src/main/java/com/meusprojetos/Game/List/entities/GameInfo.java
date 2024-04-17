@@ -18,7 +18,6 @@ public class GameInfo {
     private Set<Game> games = new HashSet<>();
 
 
-
     public GameInfo() {
     }
 
