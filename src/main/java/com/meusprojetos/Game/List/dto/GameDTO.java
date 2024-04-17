@@ -1,8 +1,11 @@
 package com.meusprojetos.Game.List.dto;
 
 import com.meusprojetos.Game.List.entities.Game;
+import com.meusprojetos.Game.List.entities.GameInfo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameDTO {
 
@@ -13,6 +16,8 @@ public class GameDTO {
     private Integer pontuacao;
     private String imgUrl;
     private String descricaoLonga;
+
+    private List<GameInfoMInDTO> genero = new ArrayList<>();
 
     public GameDTO(Long id, String titulo, LocalDate lancamento, String console, Integer pontuacao,
                    String imgUrl, String descricaoLonga) {
@@ -33,6 +38,9 @@ public class GameDTO {
         pontuacao = entity.getPontuacao();
         imgUrl = entity.getImgUrl();
         descricaoLonga = entity.getDescricaoLonga();
+        for (GameInfo gameInfo : entity.getLista()) {
+            genero.add(new GameInfoMInDTO(gameInfo));
+        }
     }
 
     public Long getId() {
@@ -61,5 +69,9 @@ public class GameDTO {
 
     public String getDescricaoLonga() {
         return descricaoLonga;
+    }
+
+    public List<GameInfoMInDTO> getGenero() {
+        return genero;
     }
 }

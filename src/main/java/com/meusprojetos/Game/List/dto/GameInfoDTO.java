@@ -7,6 +7,9 @@ public class GameInfoDTO {
     private Long id;
     private String nome;
 
+    public GameInfoDTO() {
+    }
+
     public GameInfoDTO(Long id, String nome) {
         this.id = id;
         this.nome = nome;

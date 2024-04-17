@@ -65,6 +65,10 @@ INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 3);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (13, 7);
 
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 1);
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 3);
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 8);
+
 
 
 

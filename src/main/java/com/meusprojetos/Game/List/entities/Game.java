@@ -26,6 +26,7 @@ public class Game {
     @Column(columnDefinition = "TEXT")
     private String descricaoLonga;
 
+
     @ManyToMany
     @JoinTable(name = "tb_game_game_info",
             joinColumns = @JoinColumn(name = "game_id"),
