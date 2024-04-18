@@ -1,6 +1,7 @@
 package com.meusprojetos.Game.List.dto;
 
 import com.meusprojetos.Game.List.entities.Game;
+import com.meusprojetos.Game.List.projections.GameMinProjection;
 
 import java.time.LocalDate;
 
@@ -11,6 +12,9 @@ public class GameMinDTO {
     private LocalDate lancamento;
     private String console;
     private String descricaoCurta;
+
+    public GameMinDTO() {
+    }
 
     public GameMinDTO(Long id, String titulo, LocalDate lancamento, String console, String descricaoCurta) {
         this.id = id;
@@ -26,6 +30,14 @@ public class GameMinDTO {
         lancamento = entity.getLancamento();
         console = entity.getConsole();
         descricaoCurta = entity.getDescricaoCurta();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        titulo = projection.getTitulo();
+        lancamento = projection.getLancamento();
+        console = projection.getConsole();
+        descricaoCurta = projection.getDescricaoCurta();
     }
 
     public Long getId() {

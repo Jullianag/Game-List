@@ -17,6 +17,8 @@ public class GameInfo {
     @ManyToMany(mappedBy = "lista")
     private Set<Game> games = new HashSet<>();
 
+    @OneToMany(mappedBy = "id.lista")
+    private Set<Ordenacao> items = new HashSet<>();
 
     public GameInfo() {
     }
@@ -45,6 +47,10 @@ public class GameInfo {
 
     public Set<Game> getGames() {
         return games;
+    }
+
+    public Set<Ordenacao> getItems() {
+        return items;
     }
 
     @Override

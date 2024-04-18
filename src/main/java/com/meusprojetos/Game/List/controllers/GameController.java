@@ -22,8 +22,9 @@ public class GameController {
     }
 
     @GetMapping
-    public List<GameMinDTO> findAll() {
-        List<GameMinDTO> result = gameService.findAll();
+    public List<GameMinDTO> findAll(
+            @RequestParam(name = "name", defaultValue = "") String titulo) {
+        List<GameMinDTO> result = gameService.findAll(titulo);
         return result;
     }
 

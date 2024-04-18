@@ -33,6 +33,8 @@ public class Game {
             inverseJoinColumns = @JoinColumn(name = "lista_id"))
     private Set<GameInfo> lista = new HashSet<>();
 
+    @OneToMany(mappedBy = "id.game")
+    private Set<Ordenacao> items = new HashSet<>();
 
     public Game() {
     }
@@ -116,6 +118,10 @@ public class Game {
 
     public Set<GameInfo> getLista() {
         return lista;
+    }
+
+    public Set<Ordenacao> getItems() {
+        return items;
     }
 
     @Override

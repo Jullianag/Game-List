@@ -5,6 +5,7 @@ import com.meusprojetos.Game.List.dto.GameInfoDTO;
 import com.meusprojetos.Game.List.dto.GameMinDTO;
 import com.meusprojetos.Game.List.entities.Game;
 import com.meusprojetos.Game.List.entities.GameInfo;
+import com.meusprojetos.Game.List.projections.GameMinProjection;
 import com.meusprojetos.Game.List.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,8 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public List<GameMinDTO> findAll() {
-        List<Game> result = gameRepository.findAll();
+    public List<GameMinDTO> findAll(String titulo) {
+        List<Game> result = gameRepository.searchByTitulo(titulo);
         return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
 
@@ -51,6 +52,12 @@ public class GameService {
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         gameRepository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
 
     private void copyDTOToEntity(GameDTO dto, Game entity) {
