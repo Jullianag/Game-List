@@ -17,7 +17,7 @@ public class GameDTO {
     private String imgUrl;
     private String descricaoLonga;
 
-    private List<GameInfoMInDTO> genero = new ArrayList<>();
+    private List<GameInfoDTO> genero = new ArrayList<>();
 
     public GameDTO(Long id, String titulo, LocalDate lancamento, String console, Integer pontuacao,
                    String imgUrl, String descricaoLonga) {
@@ -39,7 +39,7 @@ public class GameDTO {
         imgUrl = entity.getImgUrl();
         descricaoLonga = entity.getDescricaoLonga();
         for (GameInfo gameInfo : entity.getLista()) {
-            genero.add(new GameInfoMInDTO(gameInfo));
+            genero.add(new GameInfoDTO(gameInfo));
         }
     }
 
@@ -71,7 +71,7 @@ public class GameDTO {
         return descricaoLonga;
     }
 
-    public List<GameInfoMInDTO> getGenero() {
+    public List<GameInfoDTO> getGenero() {
         return genero;
     }
 }

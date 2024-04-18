@@ -4,10 +4,7 @@ import com.meusprojetos.Game.List.dto.GameDTO;
 import com.meusprojetos.Game.List.dto.GameMinDTO;
 import com.meusprojetos.Game.List.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,23 @@ public class GameController {
     public List<GameMinDTO> findAll() {
         List<GameMinDTO> result = gameService.findAll();
         return result;
+    }
+
+    @PostMapping
+    public GameDTO insert(@RequestBody GameDTO dto) {
+        dto = gameService.insert(dto);
+        return dto;
+    }
+
+    @PutMapping(value = "/{id}")
+    public GameDTO update(@PathVariable Long id, @RequestBody GameDTO dto) {
+        dto = gameService.update(id, dto);
+        return dto;
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public Void delete(@PathVariable Long id) {
+        gameService.delete(id);
+        return null;
     }
 }

@@ -7,17 +7,17 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_pertence")
-public class Pertence {
+@Table(name = "tb_ordenacao")
+public class Ordenacao {
 
     @EmbeddedId
-    private PertencePK id = new PertencePK();
+    private OrdenacaoPK id = new OrdenacaoPK();
     private Integer posicao;
 
-    public Pertence() {
+    public Ordenacao() {
     }
 
-    public Pertence(Game game, GameInfo lista, Integer posicao) {
+    public Ordenacao(Game game, GameInfo lista, Integer posicao) {
         id.setGame(game);
         id.setLista(lista);
         this.posicao = posicao;
@@ -52,9 +52,9 @@ public class Pertence {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pertence pertence = (Pertence) o;
+        Ordenacao ordenacao = (Ordenacao) o;
 
-        return Objects.equals(id, pertence.id);
+        return Objects.equals(id, ordenacao.id);
     }
 
     @Override

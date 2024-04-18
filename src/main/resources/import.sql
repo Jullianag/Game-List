@@ -22,15 +22,16 @@ INSERT INTO tb_game (titulo, lancamento, console, pontuacao, img_url, descricao_
 INSERT INTO tb_game (titulo, lancamento, console, pontuacao, img_url, descricao_curta, descricao_longa) VALUES ('Fallout 4', '2015-11-10', 'Playstation, XBox, PC', 4, 'https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/10.png', 'Ambientado na Costa Leste, Fallout 4 coloca os jogadores na pele de um novo protagonista, com o nome de Sole Survivor (Sobrevivente Solitário), que logo antes da guerra, consegue uma vaga para ele, sua esposa e filho num Vault próximo, tendo que correr até ele em busca da salvação logo em seguida.', 'Fallout 4 é o nosso jogo mais ambicioso de todos os tempos e a próxima geração de jogos de mundo aberto. Como sobrevivente do Refúgio 111, você vê um mundo destruído pela guerra nuclear. Só você pode reconstruir e dar rumo aos Ermos. Boas-vindas ao novo lar.');
 INSERT INTO tb_game (titulo, lancamento, console, pontuacao, img_url, descricao_curta, descricao_longa) VALUES ('Forza Horizon 5', '2021-11-01', 'XBox, PC', 4, 'https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/10.png', 'Ambientado no México, o jogador poderá escolher em qual ordem participar das corridas e explorar um vasto mapa, cheio de atividades.', 'Forza Horizon 5 é um jogo de corrida em estilo arcade, da Playground Games e publicado pela Xbox Game Studios. Ambientado no México, o jogador poderá escolher em qual ordem participar das corridas e explorar um vasto mapa, cheio de atividades, como: desafios de perícia, descobrir carros escondidos e etc.');
 INSERT INTO tb_game (titulo, lancamento, console, pontuacao, img_url, descricao_curta, descricao_longa) VALUES ('Cyberpunk 2077', '2020-12-10', 'Playstation, XBox, PC', 4, 'https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/10.png', 'Cyberpunk 2077 é uma história de aventura e ação de mundo aberto ambientada em Night City, uma megalópole obcecada por poder, glamour e modificações corporais.', 'A trama segue a luta de V enquanto tenta lidar com um misterioso implante cibernético que ameaça substituir seu corpo com a personalidade e as memórias de uma celebridade falecida perceptível apenas por V; os dois devem trabalhar juntos se houver alguma esperança de separar os dois e salvar a vida de V.');
+INSERT INTO tb_game (titulo, lancamento, console, pontuacao, img_url, descricao_curta, descricao_longa) VALUES ('Gran Turismo 7', '2022-03-04', 'Playstation', 5, 'https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/10.png', 'Gran Turismo 7 é um jogo eletrônico de corrida desenvolvido pela Polyphony Digital e publicado pela Sony Interactive Entertainment.', 'Gran Turismo 7 reúne os melhores recursos do simulador de corridas online. Seja você um piloto competitivo ou casual, colecionador, tuner, designer de visuais ou fotógrafo — encontre seu caminho com um número impressionante de modos de jogo, incluindo favoritos dos fãs como Campanha GT, Arcade e Escola de Pilotagem.');
 
 
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (1, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (1, 3);
-INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (1, 7);
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (1, 8);
 
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (2, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (2, 3);
-INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (2, 7);
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (2, 8);
 
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (3, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (3, 3);
@@ -65,29 +66,41 @@ INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 1);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 3);
 INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (14, 8);
 
+INSERT INTO tb_game_game_info (game_id, lista_id) VALUES (15, 4);
 
 
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 1, 0);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 2, 1);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 3, 2);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 4, 3);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 5, 4);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 6, 5);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 7, 6);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 9, 7);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 10, 8);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 11, 9);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 12, 10);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (1, 14, 11);
 
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (2, 6, 0);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (2, 10, 1);
 
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (3, 1, 0);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (3, 2, 1);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (3, 3, 2);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (3, 12, 3);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (3, 14, 4);
 
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (4, 13, 0);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (4, 15, 1);
 
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (1, 4, 0);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (1, 5, 1);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (1, 7, 2);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (5, 8, 0);
 
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (2, 6, 0);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (2, 10, 1);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (7, 9, 0);
 
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (3, 1, 0);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (3, 2, 1);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (3, 3, 2);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (3, 11, 3);
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (3, 12, 4);
-
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (4, 13, 0);
-
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (5, 8, 0);
-
-INSERT INTO tb_pertence (lista_id, game_id, posicao) VALUES (7, 9, 0);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (8, 1, 0);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (8, 2, 1);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (8, 12, 2);
+INSERT INTO tb_ordenacao (lista_id, game_id, posicao) VALUES (8, 14, 3);
 
 

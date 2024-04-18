@@ -7,7 +7,7 @@ import jakarta.persistence.ManyToOne;
 import java.util.Objects;
 
 @Embeddable
-public class PertencePK {
+public class OrdenacaoPK {
 
     @ManyToOne
     @JoinColumn(name = "game_id")
@@ -16,10 +16,10 @@ public class PertencePK {
     @JoinColumn(name = "lista_id")
     private GameInfo lista;
 
-    public PertencePK() {
+    public OrdenacaoPK() {
     }
 
-    public PertencePK(Game game, GameInfo lista) {
+    public OrdenacaoPK(Game game, GameInfo lista) {
         this.game = game;
         this.lista = lista;
     }
@@ -45,7 +45,7 @@ public class PertencePK {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PertencePK that = (PertencePK) o;
+        OrdenacaoPK that = (OrdenacaoPK) o;
 
         if (!Objects.equals(game, that.game)) return false;
         return Objects.equals(lista, that.lista);
