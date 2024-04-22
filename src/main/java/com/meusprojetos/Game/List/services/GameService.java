@@ -8,6 +8,8 @@ import com.meusprojetos.Game.List.entities.GameInfo;
 import com.meusprojetos.Game.List.projections.GameMinProjection;
 import com.meusprojetos.Game.List.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,9 +30,9 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public List<GameMinDTO> findAll(String titulo) {
-        List<Game> result = gameRepository.searchByTitulo(titulo);
-        return result.stream().map(x -> new GameMinDTO(x)).toList();
+    public Page<GameMinDTO> findAll(String titulo, Pageable pageable) {
+        Page<Game> result = gameRepository.searchByTitulo(titulo, pageable);
+        return result.map(x -> new GameMinDTO(x));
     }
 
     @Transactional

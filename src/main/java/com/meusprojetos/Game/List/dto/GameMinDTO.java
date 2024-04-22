@@ -15,7 +15,7 @@ public class GameMinDTO {
     private String console;
     private String descricaoCurta;
 
-    private Set<OrdenacaoDTO> posicao = new HashSet<>();
+    private Set<OrdenacaoDTO> index = new HashSet<>();
 
     public GameMinDTO() {
     }
@@ -36,9 +36,9 @@ public class GameMinDTO {
         console = entity.getConsole();
         descricaoCurta = entity.getDescricaoCurta();
         for (Ordenacao ordenacao : entity.getItems()) {
-            if (posicao == getPosicao()) {
-                posicao.removeIf(x -> Objects.equals(x.getPosicao(), x.getPosicao()));
-                posicao.add(new OrdenacaoDTO(ordenacao));
+            if (index == getIndex()) {
+                index.removeIf(x -> Objects.equals(x.getPosicao(), x.getPosicao()));
+                index.add(new OrdenacaoDTO(ordenacao));
             }
         }
     }
@@ -71,7 +71,7 @@ public class GameMinDTO {
         return descricaoCurta;
     }
 
-    public Set<OrdenacaoDTO> getPosicao() {
-        return posicao;
+    public Set<OrdenacaoDTO> getIndex() {
+        return index;
     }
 }

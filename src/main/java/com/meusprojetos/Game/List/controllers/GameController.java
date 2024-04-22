@@ -4,6 +4,8 @@ import com.meusprojetos.Game.List.dto.GameDTO;
 import com.meusprojetos.Game.List.dto.GameMinDTO;
 import com.meusprojetos.Game.List.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +24,10 @@ public class GameController {
     }
 
     @GetMapping
-    public List<GameMinDTO> findAll(
-            @RequestParam(name = "name", defaultValue = "") String titulo) {
-        List<GameMinDTO> result = gameService.findAll(titulo);
+    public Page<GameMinDTO> findAll(
+            @RequestParam(name = "name", defaultValue = "") String titulo,
+            Pageable pageable) {
+        Page<GameMinDTO> result = gameService.findAll(titulo, pageable);
         return result;
     }
 

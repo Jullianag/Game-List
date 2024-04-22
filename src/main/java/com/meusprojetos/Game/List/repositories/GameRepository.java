@@ -2,6 +2,8 @@ package com.meusprojetos.Game.List.repositories;
 
 import com.meusprojetos.Game.List.entities.Game;
 import com.meusprojetos.Game.List.projections.GameMinProjection;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,7 +15,7 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     @Query("SELECT obj " +
             "FROM Game obj " +
             "WHERE UPPER(obj.titulo) LIKE UPPER(CONCAT('%', :name, '%'))")
-    List<Game> searchByTitulo(String name);
+	Page<Game> searchByTitulo(String name, Pageable pageable);
 
     @Query(nativeQuery = true, value = """
 		SELECT tb_game.id, tb_game.titulo, tb_game.lancamento AS lancamento, tb_game.console AS console,
