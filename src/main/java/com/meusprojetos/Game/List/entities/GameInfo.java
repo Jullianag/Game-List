@@ -53,6 +53,10 @@ public class GameInfo {
         return items;
     }
 
+    public List<Game> getGame (){
+        return items.stream().map(x -> x.getGame()).toList();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

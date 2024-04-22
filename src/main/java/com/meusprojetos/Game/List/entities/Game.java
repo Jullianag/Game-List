@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -122,6 +123,10 @@ public class Game {
 
     public Set<Ordenacao> getItems() {
         return items;
+    }
+
+    public List<GameInfo> getGameInfo() {
+        return items.stream().map(x -> x.getGameInfo()).toList();
     }
 
     @Override

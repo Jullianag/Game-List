@@ -1,9 +1,11 @@
 package com.meusprojetos.Game.List.dto;
 
 import com.meusprojetos.Game.List.entities.Game;
+import com.meusprojetos.Game.List.entities.Ordenacao;
 import com.meusprojetos.Game.List.projections.GameMinProjection;
 
 import java.time.LocalDate;
+import java.util.*;
 
 public class GameMinDTO {
 
@@ -13,8 +15,11 @@ public class GameMinDTO {
     private String console;
     private String descricaoCurta;
 
+    private Set<OrdenacaoDTO> posicao = new HashSet<>();
+
     public GameMinDTO() {
     }
+
 
     public GameMinDTO(Long id, String titulo, LocalDate lancamento, String console, String descricaoCurta) {
         this.id = id;
@@ -30,6 +35,12 @@ public class GameMinDTO {
         lancamento = entity.getLancamento();
         console = entity.getConsole();
         descricaoCurta = entity.getDescricaoCurta();
+        for (Ordenacao ordenacao : entity.getItems()) {
+            if (posicao == getPosicao()) {
+                posicao.removeIf(x -> Objects.equals(x.getPosicao(), x.getPosicao()));
+                posicao.add(new OrdenacaoDTO(ordenacao));
+            }
+        }
     }
 
     public GameMinDTO(GameMinProjection projection) {
@@ -58,5 +69,9 @@ public class GameMinDTO {
 
     public String getDescricaoCurta() {
         return descricaoCurta;
+    }
+
+    public Set<OrdenacaoDTO> getPosicao() {
+        return posicao;
     }
 }

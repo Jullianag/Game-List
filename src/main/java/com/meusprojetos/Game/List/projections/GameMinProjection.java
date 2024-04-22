@@ -1,6 +1,9 @@
 package com.meusprojetos.Game.List.projections;
 
+import com.meusprojetos.Game.List.dto.OrdenacaoDTO;
+
 import java.time.LocalDate;
+import java.util.Set;
 
 public interface GameMinProjection {
 
@@ -14,5 +17,5 @@ public interface GameMinProjection {
 
     String getDescricaoCurta();
 
-    Integer getPosicao();
+    Set<OrdenacaoDTO> getPosicao();
 }
