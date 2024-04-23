@@ -1,3 +1,5 @@
+INSERT INTO tb_user (nome, email, senha) VALUES ('Amanda', 'amanda@gmail.com', '988888888', '$2a$10$XAVqytdjhQC900txJZqJze5IWrFS9tmmb9j8L1BvKY7oTNfxf3zAW');
+INSERT INTO tb_user (nome, email, senha) VALUES ('Otavio', 'otavio@gmail.com', '977777777', '$2a$10$XAVqytdjhQC900txJZqJze5IWrFS9tmmb9j8L1BvKY7oTNfxf3zAW');
 
 INSERT INTO tb_game_info (nome) VALUES ('Ação e Aventura');
 INSERT INTO tb_game_info (nome) VALUES ('Jogos de plataforma');

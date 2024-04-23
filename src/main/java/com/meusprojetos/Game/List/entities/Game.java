@@ -37,6 +37,10 @@ public class Game {
     @OneToMany(mappedBy = "id.game")
     private Set<Ordenacao> items = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "game_id")
+    private User user;
+
     public Game() {
     }
 
@@ -127,6 +131,14 @@ public class Game {
 
     public List<GameInfo> getGameInfo() {
         return items.stream().map(x -> x.getGameInfo()).toList();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
