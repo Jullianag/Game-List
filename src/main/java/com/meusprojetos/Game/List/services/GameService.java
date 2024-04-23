@@ -7,8 +7,11 @@ import com.meusprojetos.Game.List.entities.Game;
 import com.meusprojetos.Game.List.entities.GameInfo;
 import com.meusprojetos.Game.List.projections.GameMinProjection;
 import com.meusprojetos.Game.List.repositories.GameRepository;
+import com.meusprojetos.Game.List.services.exceptions.DatabaseException;
 import com.meusprojetos.Game.List.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -48,15 +51,29 @@ public class GameService {
 
     @Transactional
     public GameDTO update(Long id, GameDTO dto) {
-        Game entity = gameRepository.getReferenceById(id);
-        copyDTOToEntity(dto, entity);
-        entity = gameRepository.save(entity);
-        return new GameDTO(entity);
+
+        try {
+            Game entity = gameRepository.getReferenceById(id);
+            copyDTOToEntity(dto, entity);
+            entity = gameRepository.save(entity);
+            return new GameDTO(entity);
+        }
+        catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Id não encontrado.");
+        }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
-        gameRepository.deleteById(id);
+        if (!gameRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Id não encontrado");
+        }
+        try {
+            gameRepository.deleteById(id);
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Falha de integridade referencial");
+        }
     }
 
     @Transactional(readOnly = true)

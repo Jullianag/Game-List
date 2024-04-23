@@ -3,6 +3,7 @@ package com.meusprojetos.Game.List.controllers;
 import com.meusprojetos.Game.List.dto.GameDTO;
 import com.meusprojetos.Game.List.dto.GameMinDTO;
 import com.meusprojetos.Game.List.services.GameService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +36,7 @@ public class GameController {
     }
 
     @PostMapping
-    public ResponseEntity<GameDTO> insert(@RequestBody GameDTO dto) {
+    public ResponseEntity<GameDTO> insert(@Valid @RequestBody GameDTO dto) {
         dto = gameService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")
                 .buildAndExpand(dto.getId()).toUri();
@@ -43,7 +44,7 @@ public class GameController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<GameDTO> update(@PathVariable Long id, @RequestBody GameDTO dto) {
+    public ResponseEntity<GameDTO> update(@PathVariable Long id, @Valid @RequestBody GameDTO dto) {
         dto = gameService.update(id, dto);
         return ResponseEntity.ok(dto);
     }

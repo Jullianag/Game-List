@@ -2,6 +2,9 @@ package com.meusprojetos.Game.List.dto;
 
 import com.meusprojetos.Game.List.entities.Game;
 import com.meusprojetos.Game.List.entities.GameInfo;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,11 +13,16 @@ import java.util.List;
 public class GameDTO {
 
     private Long id;
+    @Size(min = 3, max = 100, message = "O título precisar ter entre 3 e 100 caracteres.")
+    @NotBlank(message = "Campo obrigatório!")
     private String titulo;
     private LocalDate lancamento;
     private String console;
+    @Positive(message = "A pontuação dever ser maior que zero")
     private Integer pontuacao;
     private String imgUrl;
+    @Size(min = 10, message = "A descrição precisa ter no mínimo 10 caracteres.")
+    @NotBlank(message = "Campo obrigatório")
     private String descricaoLonga;
 
     private List<GameInfoDTO> genero = new ArrayList<>();
