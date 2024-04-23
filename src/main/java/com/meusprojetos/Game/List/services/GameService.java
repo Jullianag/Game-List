@@ -7,6 +7,7 @@ import com.meusprojetos.Game.List.entities.Game;
 import com.meusprojetos.Game.List.entities.GameInfo;
 import com.meusprojetos.Game.List.projections.GameMinProjection;
 import com.meusprojetos.Game.List.repositories.GameRepository;
+import com.meusprojetos.Game.List.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,7 +26,9 @@ public class GameService {
 
     @Transactional(readOnly = true)
     public GameDTO findById(Long id) {
-        Game result = gameRepository.findById(id).get();
+        Game result = gameRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Id não encontrado.")
+        );
         return new GameDTO(result);
     }
 
