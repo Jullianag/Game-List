@@ -21,7 +21,7 @@ public class GameDTO {
     @Positive(message = "A pontuação dever ser maior que zero")
     private Integer pontuacao;
     private String imgUrl;
-    @Size(min = 10, message = "A descrição precisa ter no mínimo 10 caracteres.")
+    @Size(min = 20, message = "A descrição precisa ter no mínimo 20 caracteres.")
     @NotBlank(message = "Campo obrigatório")
     private String descricaoLonga;
 
