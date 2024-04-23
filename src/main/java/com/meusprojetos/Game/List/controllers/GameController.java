@@ -6,8 +6,11 @@ import com.meusprojetos.Game.List.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -18,34 +21,36 @@ public class GameController {
     private GameService gameService;
 
     @GetMapping(value = "/{id}")
-    public GameDTO findById(@PathVariable Long id) {
+    public ResponseEntity<GameDTO> findById(@PathVariable Long id) {
         GameDTO result = gameService.findById(id);
-        return result;
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping
-    public Page<GameMinDTO> findAll(
+    public ResponseEntity<Page<GameMinDTO>> findAll(
             @RequestParam(name = "name", defaultValue = "") String titulo,
             Pageable pageable) {
         Page<GameMinDTO> result = gameService.findAll(titulo, pageable);
-        return result;
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping
-    public GameDTO insert(@RequestBody GameDTO dto) {
+    public ResponseEntity<GameDTO> insert(@RequestBody GameDTO dto) {
         dto = gameService.insert(dto);
-        return dto;
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")
+                .buildAndExpand(dto.getId()).toUri();
+        return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public GameDTO update(@PathVariable Long id, @RequestBody GameDTO dto) {
+    public ResponseEntity<GameDTO> update(@PathVariable Long id, @RequestBody GameDTO dto) {
         dto = gameService.update(id, dto);
-        return dto;
+        return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping(value = "/{id}")
-    public Void delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         gameService.delete(id);
-        return null;
+        return ResponseEntity.noContent().build();
     }
 }
