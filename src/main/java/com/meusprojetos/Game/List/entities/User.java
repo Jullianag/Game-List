@@ -16,7 +16,7 @@ public class User implements UserDetails {
     private String nome;
     @Column(unique = true)
     private String email;
-    private String senha;
+    private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Game> games = new ArrayList<>();
@@ -30,11 +30,11 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(Long id, String nome, String email, String senha) {
+    public User(Long id, String nome, String email, String password) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
+        this.password = password;
     }
 
     public Long getId() {
@@ -61,12 +61,12 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getpassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setpassword(String password) {
+        this.password = password;
     }
 
     public List<Game> getGames() {
@@ -84,7 +84,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return senha;
+        return password;
     }
 
     @Override

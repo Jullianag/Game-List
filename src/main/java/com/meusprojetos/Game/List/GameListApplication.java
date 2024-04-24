@@ -12,13 +12,16 @@ public class GameListApplication {
 		SpringApplication.run(GameListApplication.class, args);
 	}
 
+
 	/*
 	@Override
 	public void run(String... args) throws Exception {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		System.out.println("crip senha "+encoder.encode("senha"));
+		System.out.println("crip 123456 "+encoder.encode("123456"));
 	}
 
 	 */
+
+
 
 }
