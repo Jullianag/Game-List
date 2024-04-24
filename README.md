@@ -37,7 +37,10 @@ o projeto consiste em um CRUD com controle de acesso para as funções mais deli
 - Maven
 
 ## Banco de dados:
-- Banco de dados: teste H2
+### Teste
+- H2
+### Produção
+- PostgreSQL
 
 # Como executar o projeto
 
