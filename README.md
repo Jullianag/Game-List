@@ -1,4 +1,5 @@
 # Game List 
+![GitHub License](https://img.shields.io/github/license/Jullianag/Game-List) ![GitHub language count](https://img.shields.io/github/languages/count/Jullianag/Game-List) ![GitHub repo size](https://img.shields.io/github/repo-size/Jullianag/Game-List) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Jullianag/Game-List) ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/Jullianag/Game-List)
 
 # Sobre o projeto
 
