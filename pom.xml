@@ -76,8 +76,49 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version> <!--$NO-MVN-MAN-VER$ -->
+				<version>3.3.1</version>
+				<configuration>
+
+					<propertiesEncoding>ISO-8859-1</propertiesEncoding>
+
+				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.12</version>
+				<configuration>
+					<excludes>
+						<exclude>com/meusprojetos/Game/List/GameListApplication.class</exclude>
+						<exclude>com/meusprojetos/Game/List/config/**</exclude>
+						<exclude>com/meusprojetos/Game/List/entities/**</exclude>
+						<exclude>com/meusprojetos/Game/List/dto/**</exclude>
+						<exclude>com/meusprojetos/Game/List/projections/**</exclude>
+						<exclude>com/meusprojetos/Game/List/controllers/**</exclude>
+						<exclude>com/meusprojetos/Game/List/controllers/handlers/**</exclude>
+						<exclude>com/meusprojetos/Game/List/services/exceptions/**</exclude>
+						<exclude>com/meusprojetos/Game/List/services/validations/**</exclude>
+						<exclude>com/meusprojetos/Game/List/utils/**</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-code-coverage-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
