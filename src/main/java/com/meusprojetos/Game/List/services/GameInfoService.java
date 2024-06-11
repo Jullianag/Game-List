@@ -1,5 +1,6 @@
 package com.meusprojetos.Game.List.services;
 
+import com.meusprojetos.Game.List.config.Generated;
 import com.meusprojetos.Game.List.dto.GameInfoDTO;
 import com.meusprojetos.Game.List.entities.GameInfo;
 import com.meusprojetos.Game.List.projections.GameMinProjection;
@@ -28,6 +29,7 @@ public class GameInfoService {
         return result.map(x -> new GameInfoDTO(x));
     }
 
+    @Generated
     @Transactional
     public void move(Long listId, int primeiroIndex, int segundoIndex) {
         List<GameMinProjection> list = gameRepository.searchByList(listId);

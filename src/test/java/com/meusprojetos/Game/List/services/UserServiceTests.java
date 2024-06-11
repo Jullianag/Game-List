@@ -6,6 +6,7 @@ import com.meusprojetos.Game.List.projections.UserDetailsProjection;
 import com.meusprojetos.Game.List.repositories.UserRepository;
 import com.meusprojetos.Game.List.tests.UserDetailsFactory;
 import com.meusprojetos.Game.List.tests.UserFactory;
+import com.meusprojetos.Game.List.utils.CustomUserUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,9 @@ public class UserServiceTests {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private CustomUserUtil customUserUtil;
 
     private List<UserDetailsProjection> userDetailsProjections;
     private User user;
@@ -54,8 +58,8 @@ public class UserServiceTests {
         Mockito.when(userRepository.searchUserAndRolesByEmail(existingUsername)).thenReturn(userDetailsProjections);
         Mockito.when(userRepository.searchUserAndRolesByEmail(nonExistingUsername)).thenReturn(new ArrayList<>());
 
-        Mockito.when(userRepository.findByEmail(existingUsername)).thenReturn(Optional.of(user));
-        Mockito.when(userRepository.findByEmail(nonExistingUsername)).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findByEmail(existingUsername)).thenReturn(user);
+        Mockito.when(userRepository.findByEmail(nonExistingUsername)).thenThrow(UsernameNotFoundException.class);
     }
 
     @Test
@@ -103,6 +107,19 @@ public class UserServiceTests {
     @Test
     public void authenticatedShouldReturnWhenUserExists() {
 
+        Mockito.when(customUserUtil.getLoggerUsername()).thenReturn(existingUsername);
 
+        User result = userService.authenticated();
+
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(result.getEmail(), existingUsername);
+    }
+
+    @Test
+    public void authenticatedShouldThrowsNotFoundExceptionsWhenUserDoesNotExist() {
+
+        Mockito.doThrow(ClassCastException.class).when(customUserUtil).getLoggerUsername();
+
+        Assertions.assertThrows(UsernameNotFoundException.class, userService::authenticated);
     }
 }

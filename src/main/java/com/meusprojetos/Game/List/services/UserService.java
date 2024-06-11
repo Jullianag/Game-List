@@ -5,6 +5,7 @@ import com.meusprojetos.Game.List.entities.Role;
 import com.meusprojetos.Game.List.entities.User;
 import com.meusprojetos.Game.List.projections.UserDetailsProjection;
 import com.meusprojetos.Game.List.repositories.UserRepository;
+import com.meusprojetos.Game.List.utils.CustomUserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -24,6 +25,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CustomUserUtil customUserUtil;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -52,10 +56,8 @@ public class UserService implements UserDetailsService {
 
     protected User authenticated() {
         try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            Jwt jwtPrincipal = (Jwt) authentication.getPrincipal();
-            String username = jwtPrincipal.getClaim("username");
-            return userRepository.findByEmail(username).get();
+            String username = customUserUtil.getLoggerUsername();
+            return userRepository.findByEmail(username);
         }
         catch (Exception e) {
             throw new UsernameNotFoundException("Email não encontrado");
