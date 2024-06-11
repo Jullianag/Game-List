@@ -12,6 +12,7 @@ import com.meusprojetos.Game.List.services.exceptions.DatabaseException;
 import com.meusprojetos.Game.List.services.exceptions.ResourceNotFoundException;
 import com.meusprojetos.Game.List.tests.GameFactory;
 import com.meusprojetos.Game.List.tests.GameInfoFactory;
+import com.meusprojetos.Game.List.tests.GameMinProjectionFactory;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -65,7 +66,7 @@ public class GameServiceTests {
 
         gameMinDTO = new GameMinDTO(1L, "Titulo", LocalDate.parse("2023-03-25"), "Playstation", "Descricao curta do jogo");
 
-        gameMinProjections = new ArrayList<>();
+        gameMinProjections = GameMinProjectionFactory.createGameMinProjection();
 
         page = new PageImpl<>(List.of(game));
 
@@ -183,8 +184,9 @@ public class GameServiceTests {
 
         List<GameMinDTO> result = gameService.findByList(1L);
 
-
         Assertions.assertNotNull(result);
+        Assertions.assertEquals(result.size(), 1);
+        Assertions.assertEquals(result.iterator().next().getConsole(), gameMinProjections.iterator().next().getConsole());
     }
 
 }
