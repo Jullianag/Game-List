@@ -1,6 +1,16 @@
 # Game List 
 ![GitHub License](https://img.shields.io/github/license/Jullianag/Game-List) ![GitHub language count](https://img.shields.io/github/languages/count/Jullianag/Game-List) ![GitHub repo size](https://img.shields.io/github/repo-size/Jullianag/Game-List) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Jullianag/Game-List) ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/Jullianag/Game-List)
 
+## Cobertura de testes:
+
+### Unitários
+- **Jacoco**
+  
+[![Coverage](.github/badges/jacoco.svg)](https://github.com/Jullianag//Game-List/actions/workflows/workflow.yml)
+
+### API TEST
+- Rest Assured
+
 # Sobre o projeto
 
 Este projeto é uma aplicação back end desenvolvida com base no Intensivão Java Spring do curso **DevSuperior** do professor Nélio Alves. 
@@ -11,6 +21,7 @@ O Game List tem como referência o projeto [DSList](https://github.com/devsuperi
 - Controle de acesso com login
 - Validações na camada dto
 - Novos repositories com consultas SQL e JPQL
+- Testes unitários e testes de API
 
 O usuário cadastrado como administrador tem acesso as modificações do Game, enqquanto o usuário cliente faz as consultas básicas como: consultar games (todos e por id), gêneros e informações da sua conta. Portanto
 o projeto consiste em um CRUD com controle de acesso para as funções mais delicadas.
